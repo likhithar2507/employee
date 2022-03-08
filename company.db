@@ -1,0 +1,25 @@
+import sqlite3
+connection = sqlite3.connect("company.db")
+#
+# connection.execute('''CREATE TABLE EMPLOYEE (
+#                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+#                    NAME TEXT,
+#                    DESIGNATION TEXT,
+#                    SALARY INTEGER,
+#                    COMPANYNAME TEXT,
+#                    MOBILENUM INTEGER
+#                     ); ''')
+# print("table created sucessfully")
+
+getID = input("enter employeeid:")
+getName = input("enter employee name:")
+getDesignation = input("enter employee designation:")
+getSalary = input("enter employee salary:")
+getcompanyname = input("enter companyname:")
+getmobilenumber = input("enter mobilenumber:")
+
+connection.execute("INSERT INTO EMPLOYEE(ID,NAME,DESIGNATION,SALARY,COMPANYNAME,MOBILENUM)\
+                   VALUES("+getID+",'"+getName+"','"+getDesignation+"',"+getSalary+",'"+getcompanyname+"',"+getmobilenumber+")")
+connection.commit()
+connection.close()
+print("inserted successfully")
